@@ -8,7 +8,6 @@ import { Train } from "@/interfaces/train";
 import { deleteTrain } from "@/services/deleteTrain";
 import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { patchTrainSchedule } from "@/services/patchTrainSchedule";
 import { putTrain } from "@/services/putTrain";
 
 interface TrainCardProps {
@@ -48,6 +47,7 @@ export const TrainCard: React.FC<TrainCardProps> = ({ train, index }) => {
             Name{" "}
             <Input
               value={
+                // eslint-disable-next-line no-restricted-syntax
                 methods.watch("name") ? methods.watch("name").toString() : ""
               }
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

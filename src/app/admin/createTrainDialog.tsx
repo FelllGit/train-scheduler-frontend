@@ -1,6 +1,5 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import React from "react";
@@ -42,6 +41,7 @@ export const CreateTrainDialog = () => {
             Name{" "}
             <Input
               value={
+                // eslint-disable-next-line no-restricted-syntax
                 methods.watch("name") ? methods.watch("name").toString() : ""
               }
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

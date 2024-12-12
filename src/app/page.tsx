@@ -30,8 +30,8 @@ interface TrainScheduleProps {
 export default function Home() {
   const router = useRouter();
 
-  const [from, setFrom] = useState<string | undefined>("" | undefined);
-  const [to, setTo] = useState<string | undefined>("" | undefined);
+  const [from, setFrom] = useState<string | undefined>("");
+  const [to, setTo] = useState<string | undefined>("");
   const [scheduledDate, setScheduledDate] = useState<string | undefined>("");
   const [trainId, setTrainId] = useState<number | undefined>(0);
 
@@ -165,9 +165,9 @@ export default function Home() {
               methods.watch("scheduledDate")
                 ? // eslint-disable-next-line no-restricted-syntax
                   new Date(methods.watch("scheduledDate"))
-                : undefined
+                : null
             }
-            onSelect={(val?: Date) => {
+            onSelect={(val?: Date | null) => {
               if (val) {
                 methods.setValue("scheduledDate", val.toISOString());
               } else {

@@ -58,8 +58,8 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       <PopoverContent className="p-0 flex flex-col w-64 z-[999]">
         <Calendar
           mode="single"
-          selected={value || null}
-          onSelect={(val: Date | undefined) => onSelect(val ? val : null)}
+          selected={value !== null ? value : undefined}
+          onSelect={(val: Date | undefined) => onSelect(val ?? null)}
           initialFocus
         />
         {extended && (

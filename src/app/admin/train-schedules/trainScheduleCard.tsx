@@ -113,8 +113,10 @@ export const TrainScheduleCard: React.FC<TrainScheduleCardProps> = ({
               extended
               className="w-16"
               value={
+                // eslint-disable-next-line no-restricted-syntax
                 methods.watch("scheduledDate")
-                  ? new Date(methods.watch("scheduledDate"))
+                  ? // eslint-disable-next-line no-restricted-syntax
+                    new Date(methods.watch("scheduledDate"))
                   : null
               }
               onSelect={(val) => {
@@ -132,8 +134,10 @@ export const TrainScheduleCard: React.FC<TrainScheduleCardProps> = ({
               extended
               className="w-16"
               value={
+                // eslint-disable-next-line no-restricted-syntax
                 methods.watch("arrivalTime")
-                  ? new Date(methods.watch("arrivalTime"))
+                  ? // eslint-disable-next-line no-restricted-syntax
+                    new Date(methods.watch("arrivalTime"))
                   : null
               }
               onSelect={(val) => {

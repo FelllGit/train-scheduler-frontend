@@ -14,11 +14,8 @@ import { Separator } from "@/components/ui/separator";
 import { DatePicker } from "@/components/ui/dataPicker";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { TrainSchedule } from "@/interfaces/train-schedule";
 import { Train } from "@/interfaces/train";
 import { useForm } from "react-hook-form";
-import { deleteTrainSchedule } from "@/services/deleteTrainSchedule";
-import { patchTrainSchedule } from "@/services/patchTrainSchedule";
 import { useQueryClient } from "@tanstack/react-query";
 import { createTrainSchedule } from "@/services/createTrainSchedule";
 
@@ -104,8 +101,10 @@ export const CreateTrainScheduleCard: React.FC<TrainScheduleCardProps> = ({
               extended
               className="w-16"
               value={
+                // eslint-disable-next-line no-restricted-syntax
                 methods.watch("scheduledDate")
-                  ? new Date(methods.watch("scheduledDate"))
+                  ? // eslint-disable-next-line no-restricted-syntax
+                    new Date(methods.watch("scheduledDate"))
                   : null
               }
               onSelect={(val) => {
@@ -123,8 +122,10 @@ export const CreateTrainScheduleCard: React.FC<TrainScheduleCardProps> = ({
               extended
               className="w-16"
               value={
+                // eslint-disable-next-line no-restricted-syntax
                 methods.watch("arrivalTime")
-                  ? new Date(methods.watch("arrivalTime"))
+                  ? // eslint-disable-next-line no-restricted-syntax
+                    new Date(methods.watch("arrivalTime"))
                   : null
               }
               onSelect={(val) => {

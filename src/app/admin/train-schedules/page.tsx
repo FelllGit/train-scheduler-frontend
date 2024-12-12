@@ -26,8 +26,8 @@ interface TrainScheduleSearchProps {
 }
 
 export default function AdminPage() {
-  const [from, setFrom] = useState<string | undefined>("" | undefined);
-  const [to, setTo] = useState<string | undefined>("" | undefined);
+  const [from, setFrom] = useState<string | undefined>("");
+  const [to, setTo] = useState<string | undefined>("");
   const [scheduledDate, setScheduledDate] = useState<string | undefined>("");
   const [trainId, setTrainId] = useState<number | undefined>(0);
 
@@ -124,9 +124,9 @@ export default function AdminPage() {
               methods.watch("scheduledDate")
                 ? // eslint-disable-next-line no-restricted-syntax
                   new Date(methods.watch("scheduledDate"))
-                : undefined
+                : null
             }
-            onSelect={(val?: Date) => {
+            onSelect={(val?: Date | null) => {
               if (val) {
                 methods.setValue("scheduledDate", val.toISOString());
               } else {
@@ -148,13 +148,13 @@ export default function AdminPage() {
           <></>
         ) : (
           <>
-            <CreateTrainScheduleCard trains={trainsData} />
+            <CreateTrainScheduleCard trains={trainsData || []} />
             {trainScheduleData &&
               trainScheduleData.map((trainSchedule, index) => (
                 <TrainScheduleCard
                   key={index}
                   trainSchedule={trainSchedule}
-                  trains={trainsData}
+                  trains={trainsData || []}
                   index={index}
                 />
               ))}
