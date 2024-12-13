@@ -109,6 +109,7 @@ export default function AuthPage() {
             </div>
             <div className="flex flex-col gap-1">
               <Input
+                type="password"
                 placeholder="Password"
                 {...register("password", {
                   required: "Password is required",
@@ -122,6 +123,7 @@ export default function AuthPage() {
             </div>
             <div className="flex flex-col gap-1">
               <Input
+                type="password"
                 placeholder="Repeat password"
                 {...register("repeatPassword", {
                   required: "Repeat password is required",
